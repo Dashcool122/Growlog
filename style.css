@@ -1,0 +1,22 @@
+.center{
+    text-align: center;
+}
+
+.basic-buttons{
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+    background-color: #ADEBB3;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 32px;
+    padding: 20px 20px;
+}
+
+.basic-buttons:hover{
+    transition: 0.2s;
+    background-color: #ADEBB3;
+    color: black;
+    border-radius: 25px;
+    transform: scale(1.1);
+}
