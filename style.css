@@ -1,10 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body{
+    background-color: #1A1A1A;
+}
+
+#box{
+    width: 250px;
+    height: 400px;
+    background-color: #579674;
+    border-radius: 16px;
+    border: 2px solid;
+}
+
+#Growlog{
+    color: #E2E8F0;
+    font-family: 'Newsreader', serif;
+}
+#Routines{
+    margin-left: 15px;
+    color: #E2E8F0;
+    font-family: 'Inter', serif;
+}
+#addroutinebtn{
+    margin-top: 20px;
+    padding-right: 25px;
+}
+#removeroutinebtn{
+    margin-top: 15px;
+}
+
 .center{
     text-align: center;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .tracker{
     max-width: 400px;
     margin: 0 auto;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .hidden{
@@ -14,10 +49,13 @@
 .card{
     background-color: white;
     padding: 12px;
-    margin: 12px auto;
+    margin-left: 45px;
+    margin-top: 20px;
     max-width: 350px;
-    border-radius: 6px;
+    border-radius: 25px;
     border: 1px solid #d1d5db;
+    font-family: 'Quicksand', sans-serif;
+    text-align: left;
 }
 
 .card input{
@@ -25,15 +63,26 @@
     padding: 8px;
     font-size: 14px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 12px;
     margin-bottom: 8px;
+    text-align: left;
 }
 
 .card-actions{
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 2px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: left;
 }
+
+    #confirmbtn{
+        margin-right: 15px;
+    }
+
+    #cancelbtn{
+        margin-right: 35px;
+    }
 
 .basic-buttons{
     margin-right: 10px;
@@ -46,12 +95,14 @@
     padding: 12px 20px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .basic-buttons:hover{
     background-color: #ADEBB3;
     color: black;
     transform: scale(1.05);
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* Added style for the routines when they get added */
