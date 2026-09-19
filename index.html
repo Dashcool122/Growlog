@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Growlog</title>
     <link rel = "stylesheet" href = "style.css">
     <script src = "script.js" defer></script>
 </head>
 <body>
     <div class="center">
+        
         <h1>Growlog</h1>
-        <button class="basic-buttons">Add New Routine</button>
-        <button class="basic-buttons">Remove Routine</button>
+        <div class="tracker">
+            <h2>Routines</h2>
+        </div>
+        <button id="routinebtn" class="basic-buttons">+ Add New Routine</button>
+        <button class="basic-buttons">- Remove a Routine</button>
+
+        <div id="inputbox" class="card hidden">
+        <input type="text" id="routineinput" placeholder="Enter Routine Name..">
+        <div class="card-actions">
+            <button id="confirmbtn" class="basic-buttons confirmbtn">Confirm</button>
+            <button id="cancelbtn" class="basic-buttons cancelbtn">Cancel</button>
+        </div>
+        </div>
+        
+        <div id="routinelist"></div>
     </div>
 
 </body>
