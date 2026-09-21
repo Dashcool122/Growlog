@@ -18,17 +18,21 @@ body{
     color: #E2E8F0;
     font-family: 'Newsreader', serif;
 }
-#Routines{
+#Tasks{
     margin-left: 15px;
     color: #E2E8F0;
     font-family: 'Inter', serif;
 }
-#addroutinebtn{
+#addtaskbtn{
     margin-top: 20px;
-    padding-right: 25px;
+    margin-left: 32px;
 }
-#removeroutinebtn{
-    margin-top: 15px;
+
+.main-container{
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-left: 20px;
 }
 
 .center{
@@ -49,13 +53,21 @@ body{
 .card{
     background-color: white;
     padding: 12px;
-    margin-left: 45px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 20px;
     max-width: 350px;
     border-radius: 25px;
     border: 1px solid #d1d5db;
     font-family: 'Quicksand', sans-serif;
     text-align: left;
+}
+
+.card-right{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
 }
 
 .card input{
@@ -68,21 +80,109 @@ body{
     text-align: left;
 }
 
-.card-actions{
+.card-actions {
     display: flex;
     justify-content: center;
-    gap: 2px;
-    font-family: 'Quicksand', sans-serif;
-    text-align: left;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
 }
 
-    #confirmbtn{
-        margin-right: 15px;
-    }
+.card-actions .confirmbtn,
+.card-actions .cancelbtn {
+    flex: 1;                 /* Makes both buttons the exact same width */
+    margin: 0 !important;   /* Clears the 10px margin from .basic-buttons */
+    padding: 8px 12px;       /* Smaller inner padding so text fits */
+    font-size: 14px;         /* Readable, proportional font */
+    border-radius: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
 
-    #cancelbtn{
-        margin-right: 35px;
-    }
+.status-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 0 16px;
+}
+
+.status-label{
+    font-size: 11px;
+    font-weight: 600;
+    color: #6b7280;
+    line-height: 1;
+}
+
+#tasklist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+}
+
+.task-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    width: 620px;            
+    max-width: 100%;
+    padding: 16px 20px;
+    margin: 0;               
+    border-radius: 16px;     
+    border: 1px solid #d1d5db;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #1a1a1a;
+    box-sizing: border-box; /*doesnt distort box*/
+}
+.task-text{
+    font-size: 17px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.task-info-field {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.task-info-field:focus{
+    border-color: #579674;
+    background-color: white;
+}
+
+.delete-btn{
+    background-color: #E06C75;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tasklist {
+    display: flex;
+    flex-direction: column;  /*stacks cards downwards*/
+    gap: 12px;               
+    margin: 0;
+}
 
 .basic-buttons{
     margin-right: 10px;
@@ -97,21 +197,10 @@ body{
     transition: transform 0.2s ease-in-out;
     font-family: 'Quicksand', sans-serif;
 }
-
+    
 .basic-buttons:hover{
     background-color: #ADEBB3;
     color: black;
     transform: scale(1.05);
     font-family: 'Quicksand', sans-serif;
-}
-
-/* Added style for the routines when they get added */
-.routine-box{
-    background-color: white;
-    max-width: 350px;
-    margin: 10px auto;
-    padding: 14px;
-    border-radius: 8px;
-    border: 1px solid #d1d5db;
-    font-size: 18px;
 }
