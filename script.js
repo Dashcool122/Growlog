@@ -4,20 +4,31 @@ const taskInput = document.getElementById("taskinput");
 const confirmBtn = document.getElementById("confirmbtn");
 const cancelBtn = document.getElementById("cancelbtn");
 const taskList = document.getElementById("tasklist");
+const completedList = document.getElementById("completedlist");
+const completedSection = document.getElementById("completed-section");
 
-/* To show the input box on clicking the button */
+
+function toggleCompletedHeader(){
+    if (completedList.children.length > 0){
+        completedSection.classList.remove("hidden");
+    } else{
+        completedSection.classList.add("hidden");
+    }
+}
+
+/* to show input box on clicking button */
 taskBtn.onclick = function(){
     inputBox.classList.remove("hidden");
     taskInput.value = '';
     taskInput.focus();
 };
 
-/* To hide the input box when cancel is clicked */
+/* to hide the input box when cancel is clicked */
 cancelBtn.onclick = function(){
     inputBox.classList.add("hidden");
 };
 
-/* To add routine when confirm is clicked */
+/* to add routine when confirm is clicked */
 confirmBtn.onclick = function(){
     const text = taskInput.value.trim();
 
@@ -26,7 +37,7 @@ confirmBtn.onclick = function(){
         return;
     }
 
-    /* To create the card and set the text */
+    /* to create the card and set text */
     const taskCard = document.createElement("div");
     taskCard.className = "task-box";
 
@@ -53,9 +64,24 @@ confirmBtn.onclick = function(){
     statusCheckbox.type = "checkbox";
     statusCheckbox.className = "status-checkbox";
 
+    statusCheckbox.onchange = function(){
+        if (statusCheckbox.checked){
+            infoInput.disabled = true; //to lock the additional info field controls
+            taskCard.classList.add("task-done");
+            completedList.appendChild(taskcard);
+        } else{
+            infoInput.disabled = false; //to unlock the additional info field controls
+            taskCard.classList.remove("task-done");
+            taskList.appendChild(taskcard);
+        }
+        toggleCompletedHeader();
+    };
+
     statusGroup.appendChild(statusLabel);
     statusGroup.appendChild(statusCheckbox);
 
+
+    /*delete button code*/
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "delete-btn";
     deleteBtn.textContent = "x";

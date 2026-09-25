@@ -2,8 +2,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+/*keyframe animations (to simply apply to an element)*/
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px); /* Start higher up and invisible */
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(4px);   /* Drop down slightly past final position */
+    }
+    100% {
+        transform: translateY(-4px);  /* Small rebound upward */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);     /* Settle into the natural position */
+    }
+}
+
+/*keyframe animations (to simply apply to an element)*/
+@keyframes lefteaseIn{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px); 
+    }
+    40% {
+        opacity: 1;
+        transform: translateX(15px);   
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes lefteaseIn2{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px); 
+    }
+    60% {
+        opacity: 0.3;
+        transform: translateX(2px);   
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/*all elements edited using IDs*/
 body{
     background-color: #1A1A1A;
+}
+ 
+/* #taskinput{
+    animation: lefteaseIn 0.7s;
+} */
+
+#inputbox{
+    animation: bounceIn 0.6s;
+}
+
+#tasks{
+    font-family: 'Newsreader', sansserif;
 }
 
 #box{
@@ -12,12 +75,17 @@ body{
     background-color: #579674;
     border-radius: 16px;
     border: 2px solid;
+    animation: lefteaseIn 1s;
 }
 
 #Growlog{
+    margin-top: 12px; 
+    font-size: 42px;
     color: #E2E8F0;
-    font-family: 'Newsreader', serif;
+    font-family: 'Inter', serif;
+    animation: bounceIn 0.8s;
 }
+
 #Tasks{
     margin-left: 15px;
     color: #E2E8F0;
@@ -26,6 +94,39 @@ body{
 #addtaskbtn{
     margin-top: 20px;
     margin-left: 32px;
+}
+
+#completedList{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/*all elements edited using classes*/
+
+.tasks-board{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-title{
+    color: #9ca3af;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.task-box.task-done{
+    opacity: 0.7;
+    background-color: #f3f4f6;
+}
+
+.task-box.task-done .task-text{
+    text-decoration: line-through;
+    color: #6b7280;
 }
 
 .main-container{
@@ -92,10 +193,10 @@ body{
 
 .card-actions .confirmbtn,
 .card-actions .cancelbtn {
-    flex: 1;                 /* Makes both buttons the exact same width */
-    margin: 0 !important;   /* Clears the 10px margin from .basic-buttons */
-    padding: 8px 12px;       /* Smaller inner padding so text fits */
-    font-size: 14px;         /* Readable, proportional font */
+    flex: 1;
+    margin: 0 !important;   
+    padding: 8px 12px;       
+    font-size: 14px;         
     border-radius: 20px;
     text-align: center;
     box-sizing: border-box;
@@ -149,6 +250,7 @@ body{
 .task-info-field {
     flex: 1;
     min-width: 0;
+    margin-left: 10px;
     padding: 8px 12px;
     font-size: 14px;
     border: 1px solid #d1d5db;
@@ -158,6 +260,13 @@ body{
     background-color: #f9fafb;
     transition: border-color 0.2s;
     box-sizing: border-box;
+}
+
+.task-info-field:disabled{
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    border-color: #e5e7eb;
+    cursor: not allowed;
 }
 
 .task-info-field:focus{
