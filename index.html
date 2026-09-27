@@ -4,41 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Growlog</title>
-    <link rel = "stylesheet" href = "style.css">
-    <script src = "script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     
-    
     <div class="center">
-       
         <h1 id="Growlog">Growlog</h1>
-        <div class="tracker">
-        </div>
+        <div class="tracker"></div>
     </div>
-<div class="main-container">
-    <div id="box">
-        <h2 id="Tasks">Tasks</h2>
-            <div class="left">
-            <button id="addtaskbtn" class="basic-buttons">+ Add New Task</button>
-            <div id="inputbox" class="card hidden">
-                <input type="text" id="taskinput" placeholder="Enter Task Name..">
-                <div class="card-actions">
-                    <button id="confirmbtn" class="basic-buttons confirmbtn">Confirm</button>
-                    <button id="cancelbtn" class="basic-buttons cancelbtn">Cancel</button>
+
+    <div class="main-container">
+        
+        <div id="box">
+            <div class="sidebar-header">
+                <button id="tasks-tab-btn" class="nav-tab-button active">Tasks</button>
+                <button id="journal-tab-btn" class="nav-tab-button">Journal</button>
+            </div>
+
+            
+            <div id="tasks-sidebar" class="left">
+                <button id="addtaskbtn" class="basic-buttons">+ Add New Task</button>
+                <div id="inputbox" class="card hidden">
+                    <input type="text" id="taskinput" placeholder="Enter Task Name..">
+                    <div class="card-actions">
+                        <button id="confirmbtn" class="basic-buttons confirmbtn">Confirm</button>
+                        <button id="cancelbtn" class="basic-buttons cancelbtn">Cancel</button>
+                    </div>
                 </div>
+            </div>
+
+
+            <div id="journal-sidebar" class="left hidden">
+                <button id="addentrybtn" class="basic-buttons">+ New Entry</button>
+            </div>
+        </div>
+
+        
+
+        <div id="completed-section" class="hidden">
+
+        <div id="journal-view" class="journal-board hidden">
+            <div class="journal-card">
+                <input type="text" class="journal-title-input" placeholder="Title of your entry..">
+                <textarea class="journal-textarea" placeholder="Start writing.."></textarea>
             </div>
         </div>
     </div>
-<div class="task-board">
-    <div id="tasklist"></div>
-
-    <div id="completed-section" class="hidden">
-        <h3 class="section-title">Completed Tasks</h3>
-        <div id="completedlist"></div>
-    </div>   
-
-</div>
     
 </body>
 </html>

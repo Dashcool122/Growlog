@@ -1,11 +1,20 @@
+//sidebar elements:
 const taskBtn = document.getElementById("addtaskbtn");
 const inputBox = document.getElementById("inputbox");
 const taskInput = document.getElementById("taskinput");
 const confirmBtn = document.getElementById("confirmbtn");
 const cancelBtn = document.getElementById("cancelbtn");
+//task lists:
 const taskList = document.getElementById("tasklist");
 const completedList = document.getElementById("completedlist");
 const completedSection = document.getElementById("completed-section");
+//navigation tabs and views
+const tasksTabBtn = document.getElementById("tasks-tab-btn");
+const journalTabBtn = document.getElementById("journal-tab-btn");
+const tasksView = document.getElementById("tasks-view");
+const journalView = document.getElementById("journal-view");
+const tasksSidebar = document.getElementById("tasks-sidebar");
+const journalSidebar = document.getElementById("journal-sidebar");
 
 
 function toggleCompletedHeader(){
@@ -14,6 +23,33 @@ function toggleCompletedHeader(){
     } else{
         completedSection.classList.add("hidden");
     }
+}
+
+//code to switch to Tasks view
+tasksTabBtn.onclick = function(){
+    //shows tasks workspace
+    tasksView.classList.remove("hidden");
+    tasksSidebar.classList.remove("hidden");
+    //hides journal workspace
+    journalView.classList.add("hidden");
+    journalSidebar.classList.add("hidden");
+    //switches the tab highlighting to the Tasks button
+    tasksTabBtn.classList.add("active");
+    journalTabBtn.classList.remove("active");
+}
+
+//code to switch to Journal view
+journalTabBtn.onclick = function(){
+    //show journal workspace
+    journalView.classList.remove("hidden");
+    journalSidebar.classList.remove("hidden");
+    //hide tasks workspace
+    tasksView.classList.add("hidden");
+    tasksSidebar.classList.add("hidden")
+    //switches the tab highlighting to the Journal button
+    journalTabBtn.classList.add("active");
+    tasksTabBtn.classList.remove("active");
+
 }
 
 /* to show input box on clicking button */
@@ -68,11 +104,11 @@ confirmBtn.onclick = function(){
         if (statusCheckbox.checked){
             infoInput.disabled = true; //to lock the additional info field controls
             taskCard.classList.add("task-done");
-            completedList.appendChild(taskcard);
+            completedList.appendChild(taskCard);
         } else{
             infoInput.disabled = false; //to unlock the additional info field controls
             taskCard.classList.remove("task-done");
-            taskList.appendChild(taskcard);
+            taskList.appendChild(taskCard);
         }
         toggleCompletedHeader();
     };
