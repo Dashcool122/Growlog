@@ -67,10 +67,10 @@ body {
 /* Sidebar Styles */
 #box {
     width: 250px;
-    min-height: 400px;
+    height: 664px;
     background-color: #579674;
     border-radius: 25px;
-    border: 2px solid;
+    border: 2px solid #2D3748;
     animation: lefteaseIn 1s;
     box-sizing: border-box;
 }
@@ -87,7 +87,7 @@ body {
     margin-top: 12px; 
     font-size: 42px;
     color: #E2E8F0;
-    font-family: 'Newsreader', serif;
+    font-family: 'Inter', sans-serif;
     animation: bounceIn 0.8s;
 }
 
@@ -336,9 +336,11 @@ body {
 }
 
 .journal-card {
-    background-color: white;
+    width: 1025px;
+    height: 664px;
+    background-color: #579674;
     border-radius: 16px;
-    border: 1px solid #d1d5db;
+    border: 2px solid #2D3748;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -347,34 +349,45 @@ body {
 }
 
 .journal-title-input {
+    background-color: #579674;
     width: 100%;
     font-size: 18px;
     font-weight: 700;
     font-family: 'Newsreader', serif;
     border: none;
-    border-bottom: 2px solid #e5e7eb;
+    border-radius: 10px;
     padding: 6px 0;
     outline: none;
     box-sizing: border-box;
+    color: #FAFAFA;
 }
 
-.journal-title-input:focus {
-    border-bottom-color: #579674;
+.journal-title-input::placeholder{
+    font-weight: 900;
+    color: #FAFAFA;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.journal-textarea::placeholder{
+    font-weight: 500;
+    color: #FAFAFA;
+    font-family: 'Quicksand' sans-serif;
 }
 
 .journal-textarea {
     width: 100%;
     height: 280px;
     resize: vertical;
-    border: 1px solid #e5e7eb;
+    background-color: #579674;
     border-radius: 10px;
+    border: none;
     padding: 12px;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     outline: none;
-    background-color: #f9fafb;
     box-sizing: border-box;
+    color: #FAFAFA;
 }
 
 #addtaskbtn,
