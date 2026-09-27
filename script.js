@@ -124,6 +124,7 @@ confirmBtn.onclick = function(){
 
     deleteBtn.onclick = function(){
         taskCard.remove();
+        toggleCompletedHeader();
     }
 
     cardRight.appendChild(statusGroup);

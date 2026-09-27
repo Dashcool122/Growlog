@@ -3,7 +3,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* Keyframe animations */
-@keyframes bounceIn {
+
+@keyframes btm-topbounceIn{
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+    75%{
+        transform: translateY(2px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes top-btmbounceIn {
     0% {
         opacity: 0;
         transform: translateY(-40px);
@@ -88,7 +107,7 @@ body {
     font-size: 42px;
     color: #E2E8F0;
     font-family: 'Inter', sans-serif;
-    animation: bounceIn 0.8s;
+    animation:top-btmbounceIn 0.8s;
 }
 
 #Tasks {
@@ -117,6 +136,7 @@ body {
 
 .nav-tab-button:hover{
     background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
 }
 
 .nav-tab-button.active{
@@ -143,7 +163,7 @@ body {
 }
 
 #inputbox {
-    animation: bounceIn 0.6s;
+    animation: top-btmbounceIn 0.6s;
 }
 
 /* Sidebar Form Card */
@@ -242,6 +262,7 @@ body {
 .task-box.task-done {
     opacity: 0.7;
     background-color: #f3f4f6;
+    animation: top-btmbounceIn 0.5s;
 }
 
 .task-box.task-done .task-text {
@@ -333,6 +354,7 @@ body {
     flex-direction: column;
     width: 620px;
     max-width: 100%;
+    animation: btm-topbounceIn 0.5s;
 }
 
 .journal-card {
@@ -395,6 +417,7 @@ body {
     margin: 24px 0 0 0;
     width: auto;
     align-self: center;
+    animation: btm-topbounceIn 0.8s;
 }
 
 /* Buttons */
