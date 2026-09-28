@@ -140,3 +140,12 @@ confirmBtn.onclick = function(){
     taskInput.value = '';
     inputBox.classList.add("hidden");
 };
+
+//logic for rich toolbar functions
+document.querySelectorAll(".toolbar-btn").forEach(button => {
+    button.addEventListener("click", function(e){
+        e.preventDefault();
+        const command = this.dataset.cmd;
+        document.execCommand(command, false, null)
+    });
+});

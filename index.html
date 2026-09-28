@@ -49,7 +49,17 @@
         <div id="journal-view" class="journal-board hidden">
             <div class="journal-card">
                 <input type="text" class="journal-title-input" placeholder="Title of your entry..">
-                <textarea class="journal-textarea" placeholder="Start writing.."></textarea>
+                
+                <!-- formatting toolbar -->
+                <div class="format-toolbar">
+                    <button type="button" class="toolbar-btn" data-cmd="bold"><b>B</b></button>
+                    <button type="button" class="toolbar-btn" data-cmd="italic"><b>I</b></button>
+                    <button type="button" class="toolbar-btn" data-cmd="underline"><b>U</b></button>
+                    <button type="button" class="toolbar-btn" data-cmd="insertUnorderedList">&bull; List</button>
+                </div>
+
+                <!--editable text writing area (rich text)-->
+                <div class="journal-editor" contenteditable="true" data-placeholder="Start Writing.."></div>
             </div>
         </div>
     </div>

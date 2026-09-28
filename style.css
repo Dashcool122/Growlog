@@ -354,7 +354,7 @@ body {
     flex-direction: column;
     width: 620px;
     max-width: 100%;
-    animation: btm-topbounceIn 0.5s;
+    animation: btm-topbounceIn 0.8s;
 }
 
 .journal-card {
@@ -390,26 +390,54 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-.journal-textarea::placeholder{
-    font-weight: 500;
-    color: #FAFAFA;
-    font-family: 'Quicksand' sans-serif;
+.format-toolbar{
+    display: flex;
+    gap: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0,08);
 }
 
-.journal-textarea {
-    width: 100%;
-    height: 280px;
-    resize: vertical;
-    background-color: #579674;
-    border-radius: 10px;
+.toolbar-btn{
+    background-color: #ADEBB3;
+    color: #1a1a1a;
     border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: transform 0.1s ease opacity 0.2s;
+}
+
+.toolbar-btn::hover{
+    transform: scale(1.05);
+}
+
+/*area to enter text by user*/
+.journal-editor{
+    width: 100%;
+    min-height: 535px;
+    border: none;
+    border-radius: 10px;
     padding: 12px;
     font-size: 14px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter' sans-serif;
     line-height: 1.6;
     outline: none;
+    background-color: #B0E6C3;
+    color: #1a1a1a;
     box-sizing: border-box;
-    color: #FAFAFA;
+    overflow-y: auto; /* adds a scroll bar when content exceeds visible area */
+}
+
+/*placeholder for contenteditable*/
+.journal-editor:empty:before {
+    content: attr(data-placeholder);
+    color: #38664b;
+    font-style: italic;
+    opacity: 0.8;
+    pointer-events: none;
+    display: block;
 }
 
 #addtaskbtn,
@@ -417,7 +445,7 @@ body {
     margin: 24px 0 0 0;
     width: auto;
     align-self: center;
-    animation: btm-topbounceIn 0.8s;
+    animation: btm-topbounceIn 0.5s;
 }
 
 /* Buttons */
