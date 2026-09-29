@@ -352,10 +352,82 @@ body {
 /* Journal Workspace */
 .journal-board {
     display: flex;
-    flex-direction: column;
+    gap: 20px;
     width: 620px;
     max-width: 100%;
     animation: btm-topbounceIn 0.8s;
+}
+
+.journal-sidebar{
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.journal-add-btn{
+    background-color: #ADEBB3;
+    color: #1a1a1a;
+    font-family: 'Quicksand' sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease
+}
+
+.journal-add-btn::hover{
+    transform: scale(1.05);
+}
+
+.journal-entries-list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.journal-entry-item{
+    background: rgba(255, 255, 255, 0.06);
+    color: #e5e7eb;
+    border: 1px solid rgba(87, 150, 116, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: 'Quicksand' sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /*adds "..." when text is too long*/
+    transition: background 0.2s;
+}
+
+.journal-entry-item.active{
+    background: #579674;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.journal-card-top{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.delete-entry-btn{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.delete-entry-btn::hover{
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .journal-card {

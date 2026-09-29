@@ -23,7 +23,7 @@
             </div>
 
             <div id="tasks-sidebar" class="left">
-                <button id="addtaskbtn" class="basic-buttons">+ Add New Task</button>
+                <button id="addtaskbtn" class="basic-buttons">+ New Task</button>
                 <div id="inputbox" class="card hidden">
                     <input type="text" id="taskinput" placeholder="Enter Task Name..">
                     <div class="card-actions">
@@ -47,8 +47,18 @@
         </div>
 
         <div id="journal-view" class="journal-board hidden">
-            <div class="journal-card">
-                <input type="text" class="journal-title-input" placeholder="Title of your entry..">
+
+            <div class="journal-sidebar">
+                <button id="new-journal-btn" class="journal-add-btn">+ New Journal</button>
+                <div id="journal-entries-list" class="journal-entries-list"></div>
+            </div>
+
+            <div class="journal-card" id="journal-editor-card">
+                <div class="journal-card-top">
+                    <input type="text" id="journal-title" class="journal-title-input" placeholder="Title of your entry..">
+                    <button id="delete-journal-btn" class="delete-entry-btn" title="Delete Entry">🗑️</button>
+                </div>
+                
                 
                 <!-- formatting toolbar -->
                 <div class="format-toolbar">
@@ -59,7 +69,7 @@
                 </div>
 
                 <!--editable text writing area (rich text)-->
-                <div class="journal-editor" contenteditable="true" data-placeholder="Start Writing.."></div>
+                <div id="journal-body" class="journal-editor" contenteditable="true" data-placeholder="Start Writing.."></div>
             </div>
         </div>
     </div>

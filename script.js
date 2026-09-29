@@ -4,6 +4,8 @@ const inputBox = document.getElementById("inputbox");
 const taskInput = document.getElementById("taskinput");
 const confirmBtn = document.getElementById("confirmbtn");
 const cancelBtn = document.getElementById("cancelbtn");
+const newJournalBtn = document.getElementById("new-journal-btn");
+const deleteJournalBtn = document.getElementById("delete-journal-btn");
 //task lists:
 const taskList = document.getElementById("tasklist");
 const completedList = document.getElementById("completedlist");
@@ -15,6 +17,10 @@ const tasksView = document.getElementById("tasks-view");
 const journalView = document.getElementById("journal-view");
 const tasksSidebar = document.getElementById("tasks-sidebar");
 const journalSidebar = document.getElementById("journal-sidebar");
+const journalList = document.getElementById("journal-entries-list");
+const journalTitleInput = document.getElementById("journal-title");
+const journalBody = document.getElementById("journal-body");
+
 
 
 function toggleCompletedHeader(){
@@ -149,3 +155,78 @@ document.querySelectorAll(".toolbar-btn").forEach(button => {
         document.execCommand(command, false, null)
     });
 });
+
+let journals = [];
+let activeJournalId = null;
+
+function createNewJournal(){
+    const newEntry = {
+        id: Date.now(),
+        title: "Untitled Entry",
+        content: "",
+    };
+    journals.unshift(newEntry);
+    activeJournalId = newEntry.id;
+    renderJournalList();
+    loadActiveJournal();
+}
+
+//render the sidebar pills
+function renderJournalList(){
+    journalList.innerHTML = "";
+    journals.forEach(entry => {
+        const item = document.createElement("div");
+        item.className = `journal-entry-item ${entry.id === activeJournalId ? "active" : ""}`;
+        item.textContent = entry.title || "Untitled Entry";
+        item.onclick = () => {
+            activeJournalId = entry.id;
+            renderJournalList();
+            loadActiveJournal();
+        };
+        journalList.appendChild(item);
+    });
+}
+
+//load active entry into the editor fields
+function loadActiveJournal(){
+    const entry = journals.find(j => j.id === activeJournalId);
+    if (!entry){
+        journalTitleInput.value = "";
+        journalBody.innerHTML = "";
+        return;
+    }
+    journalTitleInput.value = entry.title === "Untitled Entry" ? "" : entry.title;
+    journalBody.innerHTML = entry.content;
+}
+
+journalTitleInput.addEventListener("input", () => {
+    const entry = journals.find(j => j.id === activeJournalId);
+    if(entry){
+        entry.title = journalTitleInput.value.trim() || "Untitled Entry";
+        renderJournalList();
+    }
+});
+
+journalBody.addEventListener("input", () => {
+    const entry = journals.find(j => j.id === activeJournalId);
+    if (entry){
+        entry.content = journalBody.innerHTML;
+    }
+});
+
+// delete active journal
+deleteJournalBtn.addEventListener("click", () => {
+    if (!activeJournalId) return;
+    
+    journals = journals.filter(j => j.id !== activeJournalId);
+    activeJournalId = journals.length > 0 ? journals[0].id : null;
+    
+    renderJournalList();
+    loadActiveJournal();
+});
+
+// button binding
+newJournalBtn.addEventListener("click", createNewJournal);
+
+// initialize with one journal if empty
+createNewJournal();
