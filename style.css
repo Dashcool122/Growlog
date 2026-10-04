@@ -55,6 +55,109 @@
     }
 }
 
+@keyframes plantSway {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(6deg) scale(1.05);
+    }
+}
+
+.progress-count {
+    margin: 8px 0 0 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: #ADEBB3;
+    font-weight: 500;
+    text-align: right;
+    letter-spacing: 0.2px;
+}
+
+/* empty page plant state for tasks */
+/* parent holding everything related to empty page */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 620px;
+    max-width: 100%;
+    padding: 60px 20px;
+    /* margin: 40px auto 0 auto; */
+    margin-left: 130px;
+    margin-top: 120px;
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-sizing: border-box;
+    animation: btm-topbounceIn 0.6s ease;
+}
+
+/* icon for plant */
+.empty-plant-icon {
+    font-size: 64px;
+    margin-bottom: 12px;
+    display: inline-block;
+    animation: plantSway 3s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+/* title (all clear) text  */
+.empty-title {
+    color: #E2E8F0;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+}
+/* subtitle (your garden..) text */
+.empty-subtitle {
+    color: #9CA3AF;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+/* code for progress dashboard */
+
+.progress-card {
+    width: calc(100% - 28px);
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-top: 16px;
+    box-sizing: border-box;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #E2E8F0;
+    margin-bottom: 8px;
+}
+
+.progress-bar-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #ADEBB3;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
 /* Base Layout */
 body {
     background-color: #1A1A1A;
@@ -100,6 +203,7 @@ body {
     gap: 10px;
     padding: 16px 16px 0 16px;
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 #Growlog {
@@ -358,55 +462,73 @@ body {
     animation: btm-topbounceIn 0.8s;
 }
 
-.journal-sidebar{
-    width: 220px;
+#journal-sidebar{
+    width: 100%;
+    flex: 1;
+    min-height: 0;
     display: flex;
+    min-width: 0;
     flex-direction: column;
+    align-items: stretch;
+    padding: 0 14px;
     gap: 12px;
+    box-sizing: border-box;
 }
 
-.journal-add-btn{
+.entry-add-btn{
     background-color: #ADEBB3;
     color: #1a1a1a;
-    font-family: 'Quicksand' sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 700;
     border: none;
-    border-radius: 10px;
+    border-radius: 32px;
+    margin-top: 24px;
     padding: 10px;
     cursor: pointer;
-    transition: transform 0.1s ease
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
-.journal-add-btn::hover{
+.entry-add-btn:hover{
     transform: scale(1.05);
 }
 
 .journal-entries-list{
+    flex: 1;
+    min-height: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 8px;
     overflow-y: auto;
+    min-width: 0;
     max-height: 400px;
+    padding-right: 4px;
 }
 
 .journal-entry-item{
-    background: rgba(255, 255, 255, 0.06);
-    color: #e5e7eb;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
     border: 1px solid rgba(87, 150, 116, 0.3);
     border-radius: 8px;
     padding: 8px 12px;
-    font-family: 'Quicksand' sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 14px;
     cursor: pointer;
+    width: 100%;
+    min-width: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; /*adds "..." when text is too long*/
+    box-sizing: border-box;
     transition: background 0.2s;
+    flex-shrink: 0;
 }
 
 .journal-entry-item.active{
-    background: #579674;
-    color: #ffffff;
+    background: #ADEBB3;
+    color: #1a1a1a;
     font-weight: 600;
 }
 
@@ -425,14 +547,15 @@ body {
     transition: opacity 0.2s, transform 0.1s;
 }
 
-.delete-entry-btn::hover{
+.delete-entry-btn:hover{
     opacity: 1;
     transform: scale(1.1);
 }
 
 .journal-card {
-    width: 1025px;
+    width: 905px;
     height: 664px;
+    flex-shrink: 0;
     background-color: #579674;
     border-radius: 16px;
     border: 2px solid #2D3748;
@@ -467,7 +590,7 @@ body {
     display: flex;
     gap: 6px;
     padding-bottom: 6px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0,08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .toolbar-btn{
@@ -479,10 +602,10 @@ body {
     font-size: 13px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    transition: transform 0.1s ease opacity 0.2s;
+    transition: transform 0.1s ease, opacity 0.2s;
 }
 
-.toolbar-btn::hover{
+.toolbar-btn:hover{
     transform: scale(1.05);
 }
 
@@ -494,7 +617,7 @@ body {
     border-radius: 10px;
     padding: 12px;
     font-size: 14px;
-    font-family: 'Inter' sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     outline: none;
     background-color: #B0E6C3;
@@ -513,14 +636,16 @@ body {
     display: block;
 }
 
-#addtaskbtn,
-#addentrybtn {
+#addtaskbtn{
     margin: 24px 0 0 0;
     width: auto;
     align-self: center;
+}
+#new-entry-btn{
+    margin: 24px 0 0 0;
+    width: auto;
     animation: btm-topbounceIn 0.5s;
 }
-
 /* Buttons */
 .basic-buttons {
     font-size: 17px;

@@ -15,7 +15,7 @@
     </div>
 
     <div class="main-container">
-        
+        <!-- box controls -->
         <div id="box">
             <div class="sidebar-header">
                 <button id="tasks-tab-btn" class="nav-tab-button active">Tasks</button>
@@ -24,6 +24,7 @@
 
             <div id="tasks-sidebar" class="left">
                 <button id="addtaskbtn" class="basic-buttons">+ New Task</button>
+                
                 <div id="inputbox" class="card hidden">
                     <input type="text" id="taskinput" placeholder="Enter Task Name..">
                     <div class="card-actions">
@@ -31,14 +32,32 @@
                         <button id="cancelbtn" class="basic-buttons cancelbtn">Cancel</button>
                     </div>
                 </div>
+
+                <div class="progress-card">
+    <div class="progress-header">
+        <span>Today's Progress</span>
+        <span id="progress-percent">0%</span>
+    </div>
+    <div class="progress-bar-track">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+    </div>
+    <p id="progress-count" class="progress-count">0 tasks completed</p>
+</div>
             </div>
 
-            <div id="journal-sidebar" class="left hidden">
-                <button id="addentrybtn" class="basic-buttons">+ New Entry</button>
+            <div id="journal-sidebar" class="journal-sidebar left hidden">
+                <button id="new-entry-btn" class="entry-add-btn">+ New Entry</button>
+                <div id="journal-list" class="journal-entries-list"></div>
             </div>
         </div>
 
+        <!-- tasks controls -->
         <div id="tasks-view" class="tasks-board">
+            <div id="empty-tasks-state" class="empty-state hidden">
+                <div class="empty-plant-icon">🌱</div>
+                <h3 class="empty-title">All clear!</h3>
+                <p class="empty-subtitle">Your garden is resting. Add a task to start growing.</p>
+            </div>
             <div id="tasklist"></div>
             <div id="completed-section" class="hidden">
                 <h3 class="section-title">Completed Tasks</h3>
@@ -46,19 +65,13 @@
             </div>   
         </div>
 
+        <!-- journal workspace -->
         <div id="journal-view" class="journal-board hidden">
-
-            <div class="journal-sidebar">
-                <button id="new-journal-btn" class="journal-add-btn">+ New Journal</button>
-                <div id="journal-entries-list" class="journal-entries-list"></div>
-            </div>
-
             <div class="journal-card" id="journal-editor-card">
                 <div class="journal-card-top">
                     <input type="text" id="journal-title" class="journal-title-input" placeholder="Title of your entry..">
-                    <button id="delete-journal-btn" class="delete-entry-btn" title="Delete Entry">🗑️</button>
+                    <button id="delete-entry-btn" class="delete-entry-btn" title="Delete Entry">🗑️</button>
                 </div>
-                
                 
                 <!-- formatting toolbar -->
                 <div class="format-toolbar">
@@ -68,7 +81,7 @@
                     <button type="button" class="toolbar-btn" data-cmd="insertUnorderedList">&bull; List</button>
                 </div>
 
-                <!--editable text writing area (rich text)-->
+                <!-- editable text writing area (rich text) -->
                 <div id="journal-body" class="journal-editor" contenteditable="true" data-placeholder="Start Writing.."></div>
             </div>
         </div>
