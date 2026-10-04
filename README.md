@@ -1,6 +1,6 @@
 Growlog 
 
-A minimal, nature-themed productivity app designed to keep tasks organized and thoughts documented in one peaceful workspace. Growlog combines a focused checklist with a rich-text journal, featuring local browser persistence and smooth CSS animations.
+Growlog is a minimal, nature-themed productivity app which combines a focused checklist with a rich-text journal, featuring local browser persistence and smooth CSS animations, made to get work done.
 ---
 ---
 Features:
