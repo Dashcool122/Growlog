@@ -1,5 +1,3 @@
-Growlog 
-
 Growlog is a minimal, nature-themed productivity app which combines a focused checklist with a rich-text journal, featuring local browser persistence and smooth CSS animations, made to get work done.
 ---
 ---
@@ -13,7 +11,7 @@ Task Management
 
     Interactive Deletion: Remove individual tasks with real-time list restructuring.
 
-    Empty State Illustration: An animated, swaying seedling (🌱) appears that motivates the user to add tasks and get work done when all tasks are clear.
+    Empty State Illustration: An animated, swaying seedling appears that motivates the user to add tasks and get work done when all tasks are clear.
 ---
 Progress Dashboard
 
