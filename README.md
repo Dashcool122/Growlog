@@ -3,6 +3,9 @@ Growlog is a minimal, nature-themed productivity app which combines a focused ch
 ![Growlog Gameplay](Gameplay.png)
 ![Growlog Gameplay](Gameplay2.png)
 ---
+Try it out!
+https://dashcool122.github.io/Growlog/
+---
 Features:
 
 Task Management
